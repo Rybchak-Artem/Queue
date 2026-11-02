@@ -27,7 +27,7 @@ public class Queue {
 
         public int dequeue() {
             if (head == null) {
-                throw new IllegalStateException("Черга порожня");
+                throw new IllegalStateException("Stack empty");
             }
             int value = head.data;
             head = head.next;
@@ -40,7 +40,7 @@ public class Queue {
 
         public int peek() {
             if (head == null) {
-                throw new IllegalStateException("Черга порожня");
+                throw new IllegalStateException("Stack empty");
             }
             return head.data;
         }
@@ -62,7 +62,7 @@ public class Queue {
         public String toString() {
             StringBuilder sb = new StringBuilder("Queue [head -> tail]: ");
             if (head == null) {
-                return sb.append("(порожня)").toString();
+                return sb.append("Empty").toString();
             }
             Node current = head;
             while (current != null) {
@@ -79,30 +79,30 @@ public class Queue {
     public static void main(String[] args) {
         Queues queue = new Queues();
 
-        System.out.println("Порожня? " + queue.isEmpty());
+        System.out.println("Empty? " + queue.isEmpty());
 
         queue.enqueue(12);
         queue.enqueue(25);
         queue.enqueue(8);
         System.out.println(queue);
-        System.out.println("Розмір: " + queue.size());
+        System.out.println("Size: " + queue.size());
         System.out.println("peek(): " + queue.peek());
 
         System.out.println("dequeue(): " + queue.dequeue());
         System.out.println(queue);
 
         queue.enqueue(40);
-        System.out.println("Після enqueue(40): " + queue);
+        System.out.println("After enqueue(40): " + queue);
 
         while (!queue.isEmpty()) {
-            System.out.println("dequeue(): " + queue.dequeue() + ", залишилось: " + queue.size());
+            System.out.println("dequeue(): " + queue.dequeue() + ", left: " + queue.size());
         }
         System.out.println(queue);
 
         try {
             queue.dequeue();
         } catch (IllegalStateException e) {
-            System.out.println("Помилка при dequeue() з порожньої черги: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }
