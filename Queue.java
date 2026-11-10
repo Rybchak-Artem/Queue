@@ -79,23 +79,22 @@ public class Queue {
     public static void main(String[] args) {
         Queues queue = new Queues();
 
-        System.out.println("Empty? " + queue.isEmpty());
-
         queue.enqueue(12);
         queue.enqueue(25);
         queue.enqueue(8);
         System.out.println(queue);
         System.out.println("Size: " + queue.size());
-        System.out.println("peek(): " + queue.peek());
+        System.out.println("First element: " + queue.peek());
 
-        System.out.println("dequeue(): " + queue.dequeue());
+        System.out.println("Dequeue: " + queue.dequeue());
         System.out.println(queue);
 
         queue.enqueue(40);
-        System.out.println("After enqueue(40): " + queue);
+        System.out.println("Enqueue 40: ");
+        System.out.println(queue);
 
         while (!queue.isEmpty()) {
-            System.out.println("dequeue(): " + queue.dequeue() + ", left: " + queue.size());
+            System.out.println("dequeue: " + queue.dequeue() + ", left: " + queue.size());
         }
         System.out.println(queue);
 
